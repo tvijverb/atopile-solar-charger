@@ -1,2 +1,24 @@
+import BQ25504RGTT from "BQ25504RGTT.ato"
+import FNR8065S220MT from "FNR8065S220MT.ato"
+import POWCAP from "POWCAP.ato"
+import SOL_JST_CONN from "SOL_JST_CONN.ato"
+# import Capacitor from "generics/capacitors.ato"
+
 module SolarCharger:
+    ic = new BQ25504RGTT
     signal gnd
+
+    # power inductor
+    pd = new FNR8065S220MT
+    ic.LBST ~ pd._2
+    ic.VIN_DC ~ pd._1
+
+    # solar power input capacitor
+    pow_input_cap = new POWCAP
+    pow_input_cap._1 ~ ic.VIN_DC
+    pow_input_cap._2 ~ gnd
+
+    # solar panel connector
+    sol_jst_conn = new SOL_JST_CONN
+    sol_jst_conn._1 ~ ic.VIN_DC
+    sol_jst_conn._2 ~ gnd

@@ -1,0 +1,24 @@
+component BQ25504RGTT:
+    # component BQ25504RGTT
+    footprint = "VQFN-16_L3.0-W3.0-P0.50-TL-EP"
+    lcsc_id = "C157471"
+    mpn = "C157471"
+    # pins
+    signal VSS ~ pin 1
+    signal VIN_DC ~ pin 2
+    signal VOC_SAMP ~ pin 3
+    signal VREF_SAMP ~ pin 4
+    signal OT_PROG ~ pin 5
+    signal VBAT_OV ~ pin 6
+    signal VRDIV ~ pin 7
+    signal VBAT_UV ~ pin 8
+    signal OK_HYST ~ pin 9
+    signal OK_PROG ~ pin 10
+    signal VBAT_OK ~ pin 11
+    signal AVSS ~ pin 12
+    VSS ~ pin 13
+    signal VBAT ~ pin 14
+    signal VSTOR ~ pin 15
+    signal LBST ~ pin 16
+    signal EP ~ pin 17
+

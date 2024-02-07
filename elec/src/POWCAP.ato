@@ -1,0 +1,9 @@
+component POWCAP:
+    # component CL21A475KAQNNNE
+    footprint = "C0805"
+    lcsc_id = "C1779"
+    mpn = "C1779"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+

@@ -1,0 +1,9 @@
+component FNR8065S220MT:
+    # component FNR8065S220MT
+    footprint = "IND-SMD_L8.0-W8.0_FNR80XXS"
+    lcsc_id = "C168163"
+    mpn = "C168163"
+    # pins
+    signal _2 ~ pin 2
+    signal _1 ~ pin 1
+

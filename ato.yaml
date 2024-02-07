@@ -4,3 +4,4 @@ builds:
     entry: elec/src/solar-charger.ato:SolarCharger
 dependencies:
 - generics
+- batteries^v3.0.0
