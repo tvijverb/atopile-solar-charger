@@ -1,0 +1,2 @@
+module SolarCharger:
+    signal gnd
