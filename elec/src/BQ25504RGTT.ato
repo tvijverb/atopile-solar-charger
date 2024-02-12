@@ -16,7 +16,7 @@ component BQ25504RGTT:
     signal OK_PROG ~ pin 10
     signal VBAT_OK ~ pin 11
     signal AVSS ~ pin 12
-    VSS ~ pin 13
+    signal VSS2 ~ pin 13
     signal VBAT ~ pin 14
     signal VSTOR ~ pin 15
     signal LBST ~ pin 16
