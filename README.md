@@ -7,9 +7,12 @@ Pairing it with a regular 3.7V litihium battery is not recommended since the und
 
 Solar input - 3V max
 Battery voltage range
-| Vbat_ov | 3.8V |
-| Vbat_uv | 2.5V |
-| Vbat_ok | 2.6V |
+
+| Specs | Voltage |
+| --- | --- |
+| Vbat_ov | 3.8 |
+| Vbat_uv | 2.5 |
+| Vbat_ok | 2.6 |
 
 # Design files
 The JLCPCB production files can be found in the following folder
@@ -18,7 +21,7 @@ elec/layout/default/production
 ```
 
 ## Connectors
-There are 3 2-pin JST with 2mm pitch. Positive and negative pins are indicated with a + sign on the top of the PCB.
+There are 3 2-pin JST connectors with a 2mm pitch. Positive and negative pins are indicated with a + sign on the top of the PCB.
 1. Solar input
 2. battery connector
 3. load output
