@@ -3,7 +3,7 @@
 ## Description
 ### WARNING: PCB is still untested, it's being produced right now. I'll update the readme after testing.
 Solar charger PCB using the Texas Instruments BQ25504. It is meant to be paired with a LIC supercap https://www.aliexpress.com/w/wholesale-lic-supercapacitor.html?spm=a2g0o.home.search.0
-Pairing it with a regular 3.7V litihium battery is not recommended since the undervoltage value is too low for this chemistry.
+Pairing it with a regular 3.7V lithium battery is not recommended since the undervoltage value is too low for this chemistry.
 
 Solar input - 3V max
 
