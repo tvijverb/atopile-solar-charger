@@ -6,6 +6,7 @@ Solar charger PCB using the Texas Instruments BQ25504. It is meant to be paired 
 Pairing it with a regular 3.7V litihium battery is not recommended since the undervoltage value is too low for this chemistry.
 
 Solar input - 3V max
+
 Battery voltage range
 
 | Specs | Voltage |
