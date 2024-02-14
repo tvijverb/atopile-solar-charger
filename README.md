@@ -1,5 +1,8 @@
 # atopile-solar-charger
 
+![image](https://github.com/tvijverb/atopile-solar-charger/assets/26585400/c012c578-b7d6-4473-bec6-05b007b8e48f)
+
+
 ## Description
 ### WARNING: PCB is still untested, it's being produced right now. I'll update the readme after testing.
 Solar charger PCB using the Texas Instruments BQ25504. It is meant to be paired with a LIC supercap https://www.aliexpress.com/w/wholesale-lic-supercapacitor.html?spm=a2g0o.home.search.0
