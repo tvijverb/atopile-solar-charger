@@ -5,3 +5,5 @@ builds:
 dependencies:
 - generics
 - batteries^v3.0.0
+services:
+  components: https://jlcparts.vfive.dev/jlc

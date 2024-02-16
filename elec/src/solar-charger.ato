@@ -4,6 +4,7 @@ import POWCAP from "POWCAP.ato"
 import SOL_JST_CONN from "SOL_JST_CONN.ato"
 import Capacitor from "generics/capacitors.ato"
 import Resistor from "generics/resistors.ato"
+import Inductor from "generics/inductors.ato"
 import Header2Pin from "generics/connectors.ato"
 
 module SolarCharger:
@@ -35,15 +36,6 @@ module SolarCharger:
     load_jst_conn._1 ~ ic.VSTOR
     load_jst_conn._2 ~ gnd
 
-    # # generic header
-    # header = new Header2Pin
-    # header.p1 ~ ic.VBAT
-    # header.p2 ~ gnd
-
-    # header_ok = new Header2Pin
-    # header_ok.p1 ~ ic.VBAT_OK
-    # header_ok.p2 ~ gnd
-
     # battery cap
     bat_cap = new Capacitor
     bat_cap.value = 4.7uF +/- 20%
@@ -66,7 +58,7 @@ module SolarCharger:
     # selected 5.1Mohm
 
     r_ov1 = new Resistor
-    r_ov1.value = 4.934Mohm +/- 2%
+    r_ov1.value = 4.934Mohm +/- 1.5%
     # r_ov1.footprint = "R0805"
     r_ov1.p1 ~ ic.VBAT_OV
     r_ov1.p2 ~ gnd
@@ -117,7 +109,7 @@ module SolarCharger:
     # selected 6.04Mohm
 
     r_oc1_2 = new Resistor
-    r_oc1_2.value = 10Mohm +/- 8%
+    r_oc1_2.value = 10Mohm +/- 1%
     # r_oc1_2.footprint = "R1206"
     r_oc1_2.p1 ~ r_oc1_1.p2
     r_oc1_2.p2 ~ gnd
@@ -129,5 +121,3 @@ module SolarCharger:
     r_oc2.p1 ~ ic.VOC_SAMP
     r_oc2.p2 ~ ic.VIN_DC
     # selected 4.02Mohm
-
-
