@@ -1,6 +1,7 @@
 # atopile-solar-charger
 
 ![image](https://github.com/tvijverb/atopile-solar-charger/assets/26585400/c012c578-b7d6-4473-bec6-05b007b8e48f)
+![image](https://github.com/tvijverb/atopile-solar-charger/assets/26585400/5868a2e4-84fa-4d07-8078-723e040717c4)
 
 
 ## Description
