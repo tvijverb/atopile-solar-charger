@@ -38,13 +38,13 @@ module SolarCharger:
 
     # battery cap
     bat_cap = new Capacitor
-    bat_cap.value = 4.7uF +/- 20%
+    bat_cap.value = 4.7uF +/- 2%
     bat_cap.footprint = "C0805"
     bat_cap.p1 ~ ic.VSTOR
     bat_cap.p2 ~ gnd
 
     bat_cap_2 = new Capacitor
-    bat_cap_2.value = 100nF +/- 20%
+    bat_cap_2.value = 100nF +/- 2%
     bat_cap_2.footprint = "C0402"
     bat_cap_2.p1 ~ ic.VSTOR
     bat_cap_2.p2 ~ gnd
@@ -52,14 +52,14 @@ module SolarCharger:
     # resistors OV
     r_ov2 = new Resistor
     r_ov2.value = 5.066Mohm +/- 1%
-    # r_ov2.footprint = "R0805"
+    r_ov2.footprint = "R0805"
     r_ov2.p1 ~ ic.VRDIV
     r_ov2.p2 ~ ic.VBAT_OV
     # selected 5.1Mohm
 
     r_ov1 = new Resistor
-    r_ov1.value = 4.934Mohm +/- 1.5%
-    # r_ov1.footprint = "R0805"
+    r_ov1.value = 4.934Mohm +/- 1.4%
+    r_ov1.footprint = "R0805"
     r_ov1.p1 ~ ic.VBAT_OV
     r_ov1.p2 ~ gnd
     # select 4.87Mohm
@@ -67,21 +67,21 @@ module SolarCharger:
     # resistors OK
     r_ok1 = new Resistor
     r_ok1.value = 4.464Mohm +/- 1%
-    # r_ok1.footprint = "R0805"
+    r_ok1.footprint = "R0805"
     r_ok1.p1 ~ ic.OK_PROG
     r_ok1.p2 ~ gnd
     # selected 4.42Mohm
 
     r_ok2 = new Resistor
     r_ok2.value = 4.821Mohm +/- 2%
-    # r_ok2.footprint = "R0805"
+    r_ok2.footprint = "R0805"
     r_ok2.p1 ~ ic.OK_PROG
     r_ok2.p2 ~ ic.OK_HYST
     # selected 4.87Mohm
 
     r_ok3 = new Resistor
     r_ok3.value = 714kohm +/- 1%
-    # r_ok3.footprint = "R0805"
+    r_ok3.footprint = "R0805"
     r_ok3.p1 ~ ic.OK_HYST
     r_ok3.p2 ~ ic.VRDIV
     # selected 715kohm
@@ -96,7 +96,7 @@ module SolarCharger:
 
     r_uv2 = new Resistor
     r_uv2.value = 5Mohm +/- 1%
-    # r_uv2.footprint = "R0805"
+    r_uv2.footprint = "R0805"
     r_uv2.p1 ~ ic.VRDIV
     r_uv2.p2 ~ ic.VBAT_UV
     # selected 4.99Mohm
@@ -104,20 +104,20 @@ module SolarCharger:
     # resistors OC
     r_oc1_1 = new Resistor
     r_oc1_1.value = 6Mohm +/- 1%
-    # r_oc1_1.footprint = "R0805"
+    r_oc1_1.footprint = "R0805"
     r_oc1_1.p1 ~ ic.VOC_SAMP
     # selected 6.04Mohm
 
     r_oc1_2 = new Resistor
     r_oc1_2.value = 10Mohm +/- 1%
-    # r_oc1_2.footprint = "R1206"
+    r_oc1_2.footprint = "R1206"
     r_oc1_2.p1 ~ r_oc1_1.p2
     r_oc1_2.p2 ~ gnd
     # selected 10Mohm
 
     r_oc2 = new Resistor
     r_oc2.value = 4Mohm +/- 1%
-    # r_oc2.footprint = "R1206"
+    r_oc2.footprint = "R1206"
     r_oc2.p1 ~ ic.VOC_SAMP
     r_oc2.p2 ~ ic.VIN_DC
     # selected 4.02Mohm
