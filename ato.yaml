@@ -4,6 +4,5 @@ builds:
     entry: elec/src/solar-charger.ato:SolarCharger
 dependencies:
 - generics
-- batteries^v3.0.0
 # services:
   # components: https://jlcparts.vfive.dev/jlc/v1 # https://atopile-component-server-atsuhzfd5a-uc.a.run.app/jlc
