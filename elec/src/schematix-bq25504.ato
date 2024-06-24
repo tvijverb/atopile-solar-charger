@@ -1,0 +1,152 @@
+import Power from "generics/interfaces.ato"
+import Capacitor from "generics/capacitors.ato"
+import Resistor from "generics/resistors.ato"
+import Pair from "generics/interfaces.ato"
+
+component _BQ25504:
+    # component BQ25504
+    footprint = "VQFN-16_L3.0-W3.0-P0.50"
+    lcsc_id = "C123456"
+    mpn = "BQ25504"
+    # pins
+    signal AVSS ~ pin 12
+    signal LBST ~ pin 16
+    signal OK_HYST ~ pin 9
+    signal OK_PROG ~ pin 10
+    signal OT_PROG ~ pin 5
+    signal VBAT ~ pin 14
+    signal VBAT_OK ~ pin 11
+    signal VBAT_OV ~ pin 6
+    signal VBAT_UV ~ pin 8
+    signal VIN_DC ~ pin 2
+    signal VOC_SAMP ~ pin 3
+    signal VREF_SAMP ~ pin 4
+    signal VSS ~ pin 1
+    VSS ~ pin 13
+    signal VSTOR ~ pin 15
+
+    power_in = new Power
+    power_in.vcc ~ VIN_DC
+    power_in.gnd ~ VSS
+
+    power_out = new Power
+    power_out.vcc ~ VSTOR
+    power_out.gnd ~ VSS
+
+    battery = new Power
+    battery.vcc ~ VBAT
+    battery.gnd ~ VSS
+
+    status = new Pair
+    status.vcc ~ VBAT_OK
+    status.io ~ OK_PROG
+    status.gnd ~ VSS
+
+    overvoltage = new Pair
+    overvoltage.vcc ~ VBAT_OV
+    overvoltage.io ~ VREF_SAMP
+    overvoltage.gnd ~ VSS
+
+    undervoltage = new Pair
+    undervoltage.vcc ~ VBAT_UV
+    undervoltage.io ~ VREF_SAMP
+    undervoltage.gnd ~ VSS
+
+    hysteresis = new Pair
+    hysteresis.vcc ~ OK_HYST
+    hysteresis.io ~ VREF_SAMP
+    hysteresis.gnd ~ VSS
+
+module BQ25504:
+    "BQ25504 Ultra Low-Power Boost Converter With Battery Management For Energy Harvester Applications"
+    ic = new _BQ25504
+    power_in = new Power
+    power_out = new Power
+    battery = new Power
+    status = new Pair
+    overvoltage = new Pair
+    undervoltage = new Pair
+    hysteresis = new Pair
+
+    # External connections
+    power_in ~ ic.power_in
+    power_out ~ ic.power_out
+    battery ~ ic.battery
+    status ~ ic.status
+    overvoltage ~ ic.overvoltage
+    undervoltage ~ ic.undervoltage
+    hysteresis ~ ic.hysteresis
+
+    # Bypass capacitors
+    vin_cap = new Capacitor
+    vin_cap.value = 4.7uF +/- 20%
+    vin_cap.package = "0805"
+    vin_cap.power ~ ic.power_in
+
+    vstor_cap = new Capacitor
+    vstor_cap.value = 4.7uF +/- 20%
+    vstor_cap.package = "0805"
+    vstor_cap.power ~ ic.power_out
+
+    vref_cap = new Capacitor
+    vref_cap.value = 0.01uF +/- 20%
+    vref_cap.package = "0402"
+    vref_cap.power ~ ic.overvoltage
+
+    # Resistors for MPPT
+    roc1 = new Resistor
+    roc1.value = 10MOhm +/- 1%
+    roc1.package = "0805"
+    roc1.1 ~ ic.VOC_SAMP
+    roc1.2 ~ ic.VIN_DC
+
+    roc2 = new Resistor
+    roc2.value = 10MOhm +/- 1%
+    roc2.package = "0805"
+    roc2.1 ~ ic.VOC_SAMP
+    roc2.2 ~ ic.VSS
+
+    # Resistors for overvoltage
+    rov1 = new Resistor
+    rov1.value = 5.90MOhm +/- 1%
+    rov1.package = "0805"
+    rov1.1 ~ ic.VBAT_OV
+    rov1.2 ~ ic.VREF_SAMP
+
+    rov2 = new Resistor
+    rov2.value = 4.02MOhm +/- 1%
+    rov2.package = "0805"
+    rov2.1 ~ ic.VBAT_OV
+    rov2.2 ~ ic.VSS
+
+    # Resistors for undervoltage
+    ruv1 = new Resistor
+    ruv1.value = 5.60MOhm +/- 1%
+    ruv1.package = "0805"
+    ruv1.1 ~ ic.VBAT_UV
+    ruv1.2 ~ ic.VREF_SAMP
+
+    ruv2 = new Resistor
+    ruv2.value = 4.42MOhm +/- 1%
+    ruv2.package = "0805"
+    ruv2.1 ~ ic.VBAT_UV
+    ruv2.2 ~ ic.VSS
+
+    # Resistors for status
+    rok1 = new Resistor
+    rok1.value = 4.42MOhm +/- 1%
+    rok1.package = "0805"
+    rok1.1 ~ ic.OK_PROG
+    rok1.2 ~ ic.VREF_SAMP
+
+    rok2 = new Resistor
+    rok2.value = 4.22MOhm +/- 1%
+    rok2.package = "0805"
+    rok2.1 ~ ic.OK_PROG
+    rok2.2 ~ ic.VSS
+
+    rok3 = new Resistor
+    rok3.value = 1.43MOhm +/- 1%
+    rok3.package = "0805"
+    rok3.1 ~ ic.OK_HYST
+    rok3.2 ~ ic.VSS

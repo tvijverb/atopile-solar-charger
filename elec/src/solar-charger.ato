@@ -10,6 +10,19 @@ import Header2Pin from "generics/connectors.ato"
 module SolarCharger:
     ic = new BQ25504RGTT
     signal gnd
+    ic.VSS ~ gnd
+    ic.VSS2 ~ gnd
+    ic.AVSS ~ gnd
+    # TODO, vbat ok to pad with gnd
+    # ic.vbat_ok
+    ic.OT_PROG ~ gnd
+
+    # Cref capacitor
+    cref = new Capacitor
+    cref.value = 0.01uF +/- 10%
+    cref.footprint = "C0402"
+    cref.p1 ~ ic.VREF_SAMP
+    cref.p2 ~ gnd
 
     # power inductor
     pd = new FNR8065S220MT
@@ -89,7 +102,7 @@ module SolarCharger:
     # resistors UV
     r_uv1 = new Resistor
     r_uv1.value = 5Mohm +/- 1%
-    # r_uv1.footprint = "R0805"
+    r_uv1.footprint = "R0805"
     r_uv1.p1 ~ ic.VBAT_UV
     r_uv1.p2 ~ gnd
     # selected 4.99Mohm
